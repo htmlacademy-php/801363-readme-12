@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Олег Корнаухов](https://up.htmlacademy.ru/php/12/user/801363).
-* Наставник: `Неизвестно`.
+* Наставник: [Максим Деев](https://htmlacademy.ru/profile/id685777).
 
 ---
 
