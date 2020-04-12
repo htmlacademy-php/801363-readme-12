@@ -210,26 +210,8 @@ $array[] = ['title'=>'Лучшие курсы', 'type'=>'post-link', 'descriptio
             </div>
         </div>
         <div class="popular__posts">
-            <div class="visually-hidden" id="donor">
-                <!--содержимое для поста-цитаты-->
-
-
-                <!--содержимое для поста-ссылки-->
-
-
-                <!--содержимое для поста-фото-->
-
-
-                <!--содержимое для поста-видео-->
-
-
-                <!--содержимое для поста-текста-->
-
-            </div>
-
-<!--///////////////////////////////////////////////////////////////////////////////-->
             <?php foreach($array as $itm): ?>
-            <article class="popular__post post">
+            <article class="popular__post post <?=$itm['type']?>">
                 <header class="post__header">
                     <h2><?=$itm['title']?></h2>
                 </header>
