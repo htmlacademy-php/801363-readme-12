@@ -44,3 +44,38 @@ function trimAll($var) {
     }
     return $var;
 }
+
+function wtf($array, $stop = false) {
+    echo '<pre>'.print_r($array,1).'</pre>';
+    if(!$stop) {
+        exit();
+    }
+}
+
+function calc_local_time($datetime) {
+    $dat = strtotime($datetime);
+    $diff = time() - $dat;
+
+    if($diff < 3600) {
+        $i = $diff / 60;
+        $ans = get_noun_plural_form($i, 'минута', 'минуты', 'минут');
+        return $i.' '.$ans.' назад.';
+    } elseif($diff < 86400) {
+        $i = $diff / 60 / 60;
+        $ans = get_noun_plural_form($i, 'час', 'часа', 'часов');
+        return $i.' '.$ans.' назад.';
+    } elseif($diff < 604800) {
+        $i = $diff / 60 / 60 / 24;
+        $ans = get_noun_plural_form($i, 'день', 'дня', 'дней');
+        return $i.' '.$ans.' назад.';
+    } elseif($diff < 2592000) {
+        $i = $diff / 60 / 60 / 24 / 7;
+        $ans = get_noun_plural_form($i, 'неделя', 'недели', 'недель');
+        return $i.' '.$ans.' назад.';
+    } else {
+        $i = floor($diff / 60 / 60 / 24 / 7 / 4);
+        $ans = get_noun_plural_form($i, 'месяц', 'месяца', 'месяцев');
+        return $i.' '.$ans.' назад.';
+    }
+
+}
