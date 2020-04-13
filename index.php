@@ -24,5 +24,5 @@ $array[1]['description'] = crop('Церковь - это не здание, це
 
 $main = include_template('main.php', ['array'=>$array]);
 
-print(include_template('layout.php', ['main'=>$main]));
+print(include_template('layout.php', ['main'=>$main, 'is_auth'=>$is_auth, 'user_name'=>$user_name]));
 ?>

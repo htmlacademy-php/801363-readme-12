@@ -85,16 +85,16 @@
     </div>
     <div class="popular__posts">
         <?php foreach($array as $itm): ?>
-            <article class="popular__post post <?=$itm['type']?>">
+            <article class="popular__post post <?=out_secur($itm['type'])?>">
                 <header class="post__header">
-                    <h2><?=$itm['title']?></h2>
+                    <h2><?=out_secur($itm['title'])?></h2>
                 </header>
                 <div class="post__main">
                     <?php switch($itm['type']) {
                         case('post-quote'): ?>
                             <blockquote>
                                 <p>
-                                    <?=$itm['description']?>
+                                    <?=out_secur($itm['description'])?>
                                 </p>
                                 <cite>Неизвестный Автор</cite>
                             </blockquote>
@@ -102,7 +102,7 @@
                         case('post-video'): ?>
                             <div class="post-video__block">
                                 <div class="post-video__preview">
-                                    <?=embed_youtube_cover($itm['description']); ?>
+                                    <?=embed_youtube_cover(out_secur($itm['description'])); ?>
                                     <img src="img/coast-medium.jpg" alt="Превью к видео" width="360" height="188">
                                 </div>
                                 <a href="post-details.html" class="post-video__play-big button">
@@ -114,11 +114,11 @@
                             </div>
                             <?php break;
                         case('post-text'): ?>
-                            <p><?=$itm['description']?></p>
+                            <p><?=out_secur($itm['description'])?></p>
                             <?php break;
                         case('post-photo'): ?>
                             <div class="post-photo__image-wrapper">
-                                <img src="img/<?=$itm['description']?>" alt="Фото от пользователя" width="360" height="240">
+                                <img src="img/<?=out_secur($itm['description'])?>" alt="Фото от пользователя" width="360" height="240">
                             </div>
                             <?php break;
                         case('post-link'): ?>
@@ -129,10 +129,10 @@
                                             <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
                                         </div>
                                         <div class="post-link__info">
-                                            <h3><?=$itm['title']?></h3>
+                                            <h3><?=out_secur($itm['title'])?></h3>
                                         </div>
                                     </div>
-                                    <span><?=$itm['description']?></span>
+                                    <span><?=out_secur($itm['description'])?></span>
                                 </a>
                             </div>
                             <?php break;
@@ -142,10 +142,10 @@
                     <div class="post__author">
                         <a class="post__author-link" href="#" title="Автор">
                             <div class="post__avatar-wrapper">
-                                <img class="post__author-avatar" src="img/<?=$itm['avatar']?>" alt="Аватар пользователя">
+                                <img class="post__author-avatar" src="img/<?=out_secur($itm['avatar'])?>" alt="Аватар пользователя">
                             </div>
                             <div class="post__info">
-                                <b class="post__author-name"><?=$itm['login']?></b>
+                                <b class="post__author-name"><?=out_secur($itm['login'])?></b>
                                 <time class="post__time" datetime="">дата</time>
                             </div>
                         </a>
