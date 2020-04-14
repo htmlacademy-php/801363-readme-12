@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Europe/Moscow');
+
 include_once ('./functions.php');
 include_once ('./helpers.php');
 $is_auth = rand(0, 1);
@@ -10,6 +12,15 @@ $array[] = ['title'=>'Игра престолов', 'type'=>'post-text', 'descri
 $array[] = ['title'=>'Наконец, обработал фотки!', 'type'=>'post-photo', 'description'=>'rock-medium.jpg', 'login'=>'Виктор', 'avatar'=>'userpic-mark.jpg'];
 $array[] = ['title'=>'Моя мечта', 'type'=>'post-photo', 'description'=>'coast-medium.jpg', 'login'=>'Лариса', 'avatar'=>'userpic-larisa-small.jpg'];
 $array[] = ['title'=>'Лучшие курсы', 'type'=>'post-link', 'description'=>'www.htmlacademy.ru', 'login'=>'Владик', 'avatar'=>'userpic.jpg'];
+
+foreach($array as $k=>$v) {
+    $tim = generate_random_date($k);
+    $array[$k]['datetime'] = $tim;
+    $array[$k]['show_date'] = date('d.m.Y H:i', strtotime($tim));
+    $array[$k]['interval'] = calc_local_time($tim);
+}
+
+//wtf($array);
 
 
 $array[1]['description'] = crop('Церковь - это не здание, церковь - это, прежде всего люди, прихожане, мы с вами. От нас многое зависит. Один батюшка с матушкой просто всех не вытянут, тем более забот у них - “выше крыши” всегда. Это и воскресная школа и приход, и организация молодёжи (та же “Гармония”).

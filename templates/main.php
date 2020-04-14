@@ -114,7 +114,7 @@
                             </div>
                             <?php break;
                         case('post-text'): ?>
-                            <p><?=out_secur($itm['description'])?></p>
+                            <p><?=$itm['description']?></p>
                             <?php break;
                         case('post-photo'): ?>
                             <div class="post-photo__image-wrapper">
@@ -146,7 +146,7 @@
                             </div>
                             <div class="post__info">
                                 <b class="post__author-name"><?=out_secur($itm['login'])?></b>
-                                <time class="post__time" datetime="">дата</time>
+                                <time class="post__time" datetime="<?=$itm['datetime']?>" title="<?=$itm['show_date']?>"><?=$itm['interval']?></time>
                             </div>
                         </a>
                     </div>
