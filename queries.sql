@@ -21,3 +21,21 @@ INSERT INTO `users` (`id`, `datetime`, `email`, `login`, `access_level`, `pass`,
 (1, '2020-04-14 10:58:25', 'vasya@mail.ru', 'robocop', 0, 'secret', 'user.svg'),
 (2, '2020-04-14 10:58:25', 'termik@mail.ru', 'terminator', 0, 'secret2', 'user.svg');
 COMMIT;
+
+
+//   запросы различные, не знал нужно ли тут указывать что от чего, но, думаю, и так - всё понятно... :)
+
+SELECT post.id, post.title, post.count, post.id_type_content, post.author, content_type.id AS TYPE_ID, content_type.name FROM `post`
+LEFT JOIN `content_type` ON
+content_type.id = post.id_type_content
+ORDER BY post.count DESC
+
+
+INSERT INTO `likes` SET
+`id_user`   = 1,
+`like_type` = 1
+
+INSERT INTO `subscriptions` SET
+`id_user`   = 1,
+`id_author` = 2
+
