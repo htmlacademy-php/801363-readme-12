@@ -24,6 +24,8 @@ COMMIT;
 
 
 //   запросы различные, не знал нужно ли тут указывать что от чего, но, думаю, и так - всё понятно... :)
+INSERT INTO `comment` (`id`, `datetime`, `text`, `id_user`, `id_post`) VALUES (NULL, CURRENT_TIMESTAMP, 'Это просто взрывает мне мосх...', '2', '1');
+
 
 SELECT post.id, post.title, post.count, post.id_type_content, post.author, content_type.id AS TYPE_ID, content_type.name FROM `post`
 LEFT JOIN `content_type` ON
@@ -39,3 +41,10 @@ INSERT INTO `subscriptions` SET
 `id_user`   = 1,
 `id_author` = 2
 
+SELECT * FROM `post` WHERE
+`id_user`   = 1
+
+SELECT comment.id, comment.id_user, comment.id_post, comment.text, users.id AS ID_USER, users.login FROM `comment`
+RIGHT JOIN `users` ON
+users.id = comment.id_user WHERE
+comment.id_post = 1
