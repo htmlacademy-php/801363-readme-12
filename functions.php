@@ -1,11 +1,13 @@
 <?php
-function q($query) {
+function open_DB() {
     $con = mysqli_connect("localhost", "mysql", "mysql","schema");
-    if($con == false) {
-        return false;
-    } else {
-        mysqli_set_charset($con, "utf8");
-        return mysqli_query($con, $query);
+    mysqli_set_charset($con, "utf8");
+    return $con;
+}
+
+function q($link, $query) {
+    if($link !== false) {
+        return mysqli_query($link, $query);
     }
 }
 

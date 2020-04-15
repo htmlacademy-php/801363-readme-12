@@ -7,9 +7,9 @@ include_once ('./helpers.php');
 // функция q - находится там же, где и все остальные в functions.php там же происходит настройка и подключение к БД
 
 // при написании нижеследующего запроса - мозг чуть не сгорел )))
+$link = open_DB();
 
-
-$ask = q("
+$ask = q($link, "
 SELECT post.id, post.title, post.datetime, post.id_type_content, post.text, post.img, post.youtube, post.link, post.count, post.author, post.id_user, post.hash, users.id AS ID_USER, users.login, users.img AS avatar, content_type.id AS ID_CONTENT, content_type.class FROM `post`
 LEFT JOIN `users` ON
 post.id_user = users.id
