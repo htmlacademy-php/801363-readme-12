@@ -3,6 +3,20 @@ date_default_timezone_set('Europe/Moscow');
 
 include_once ('./functions.php');
 include_once ('./helpers.php');
+
+$ask = q("
+SELECT * FROM `users`
+");
+
+$arr = [];
+if($ask->num_rows) {
+    while($row = $ask->fetch_assoc()) {
+        $arr[] = $row;
+    }
+}
+
+wtf($arr);
+
 $is_auth = rand(0, 1);
 
 $user_name = 'Robin'; // укажите здесь ваше имя

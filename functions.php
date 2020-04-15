@@ -1,4 +1,14 @@
 <?php
+function q($query) {
+    $con = mysqli_connect("localhost", "mysql", "mysql","schema");
+    if($con == false) {
+        return false;
+    } else {
+        mysqli_set_charset($con, "utf8");
+        return mysqli_query($con, $query);
+    }
+}
+
 function crop($text, $count=300) {
     $count = (int)$count;
     if(strlen($text) <= $count) {
@@ -74,8 +84,12 @@ function calc_local_time($datetime) {
         return $i.' '.$ans.' назад.';
     } else {
         $i = floor($diff / 60 / 60 / 24 / 7 / 4);
-        $ans = get_noun_plural_form($i, 'месяц', 'месяца', 'месяцев');
-        return $i.' '.$ans.' назад.';
+        if($i < 12) {
+            $ans = get_noun_plural_form($i, 'месяц', 'месяца', 'месяцев');
+            return $i . ' ' . $ans . ' назад.';
+        } else {
+            return 'Более года назад.';
+        }
     }
 
 }
