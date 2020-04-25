@@ -6,7 +6,6 @@ include_once ('./helpers.php');
 
 // функция q - находится там же, где и все остальные в functions.php там же происходит настройка и подключение к БД
 
-// при написании нижеследующего запроса - мозг чуть не сгорел )))
 $link = open_DB();
 
 $ask = q($link, "
@@ -18,14 +17,24 @@ post.id_type_content = content_type.id
 ORDER BY post.count ASC
 ");
 
+if(isset($_GET['id']) && ((int)$_GET['id'] <=0 || (int)$_GET['id'] > 5)) {   // проверка диапазона номеров категорий что б не ввели что не нужно
+    unset($_GET['id']);
+}
+
 $array = [];
 if($ask->num_rows) {
     while($row = $ask->fetch_assoc()) {
-        $array[] = $row;
+        if(isset($_GET['id'])) {
+            if($row['id_type_content'] == $_GET['id']) {
+                $array[] = $row;
+            }
+        } else {
+            $array[] = $row;
+        }
     }
 }
 
-//wtf($array);
+
 
 $is_auth = rand(0, 1);
 
