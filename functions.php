@@ -8,6 +8,8 @@ function open_DB() {
 function q($link, $query) {
     if($link !== false) {
         return mysqli_query($link, $query);
+    } else {
+        return 'err';
     }
 }
 

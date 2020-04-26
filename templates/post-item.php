@@ -106,14 +106,12 @@
 
 <main class="page__main page__main--publication">
     <div class="container">
-        <h1 class="page__title page__title--publication">Наконец, обработала фотки!</h1>
+        <h1 class="page__title page__title--publication"><?=out_secur($itm['title'])?></h1>
         <section class="post-details">
             <h2 class="visually-hidden">Публикация</h2>
             <div class="post-details__wrapper post-photo">
                 <div class="post-details__main-block post post--details">
-                    <div class="post-details__image-wrapper post-photo__image-wrapper">
-                        <img src="img/rock-default.jpg" alt="Фото от пользователя" width="760" height="507">
-                    </div>
+                    <?=$post?>
                     <div class="post__indicators">
                         <div class="post__buttons">
                             <a class="post__indicator post__indicator--likes button" href="#" title="Лайк">

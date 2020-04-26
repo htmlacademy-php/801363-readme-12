@@ -35,7 +35,6 @@ if($ask->num_rows) {
 }
 
 
-
 $is_auth = rand(0, 1);
 
 $user_name = 'Robin'; // укажите здесь ваше имя

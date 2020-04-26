@@ -87,7 +87,7 @@
         <?php foreach($array as $itm): ?>
             <article class="popular__post post post-<?=out_secur($itm['class'])?>">
                 <header class="post__header">
-                    <h2><?=out_secur($itm['title'])?></h2>
+                    <h2><a href="post.php?id=<?=(int)$itm['id']?>"><?=out_secur($itm['title'])?></a></h2>
                 </header>
                 <div class="post__main">
                     <?php switch('post-'.$itm['class']) {

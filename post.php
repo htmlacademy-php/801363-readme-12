@@ -1,7 +1,28 @@
 <?php
+include_once ('./functions.php');
+include_once ('./helpers.php');
+
+
+if(isset($_GET['id']) )
 $link = open_DB();
-q($link, "
-SELECT * FROM `post` WHERE `id` = 1
+$ask = q($link, "
+SELECT * FROM `post`
+WHERE post.id = ".(int)$_GET['id']."
 ");
 
-print(include_template('post-item.php', ['main'=>$main, 'is_auth'=>$is_auth, 'user_name'=>$user_name]));
+if($ask->num_rows) {
+    $row = $ask->fetch_assoc();
+
+$ask = q($link, "
+SELECT * FROM `content_type` WHERE
+`id` = ".(int)$row['id_type_content']."
+LIMIT 1
+");
+
+    $post = print(include_template('content_'.$row['class'].'.php', ['itm'=>$row]));
+    print(include_template('post-item.php', ['itm'=>$row, 'post'=>$post]));
+
+} else {
+    echo 'not writers';
+}
+
