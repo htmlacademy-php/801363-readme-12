@@ -8,6 +8,7 @@
                 </div>
                 <div class="post-link__info">
                     <h3><?=$itm['title'];?></h3>
+                    <p><?=$itm['link'];?></p>
                 </div>
             </div>
         </a>

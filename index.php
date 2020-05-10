@@ -17,10 +17,6 @@ post.id_type_content = content_type.id
 ORDER BY post.count ASC
 ");
 
-if(isset($_GET['id']) && ((int)$_GET['id'] <=0 || (int)$_GET['id'] > 5)) {   // проверка диапазона номеров категорий что б не ввели что не нужно
-    unset($_GET['id']);
-}
-
 $array = [];
 if($ask->num_rows) {
     while($row = $ask->fetch_assoc()) {
