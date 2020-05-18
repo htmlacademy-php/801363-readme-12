@@ -36,12 +36,12 @@
             <b class="popular__filters-caption filters__caption">Тип контента:</b>
             <ul class="popular__filters-list filters__list">
                 <li class="popular__filters-item popular__filters-item--all filters__item filters__item--all">
-                    <a class="filters__button filters__button--ellipse filters__button--all filters__button--active" href="#">
+                    <a class="filters__button filters__button--ellipse filters__button--all <?php if(!isset($_GET['id'])) { echo 'filters__button--active'; }?>" href="/">
                         <span>Все</span>
                     </a>
                 </li>
                 <li class="popular__filters-item filters__item">
-                    <a class="filters__button filters__button--photo button" href="#">
+                    <a class="filters__button filters__button--photo button <?php if(isset($_GET['id']) && $_GET['id'] == 3) { echo 'filters__button--active'; }?>" href="/?id=3">
                         <span class="visually-hidden">Фото</span>
                         <svg class="filters__icon" width="22" height="18">
                             <use xlink:href="#icon-filter-photo"></use>
@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="popular__filters-item filters__item">
-                    <a class="filters__button filters__button--video button" href="#">
+                    <a class="filters__button filters__button--video button <?php if(isset($_GET['id']) && $_GET['id'] == 4) { echo 'filters__button--active'; }?>" href="/?id=4">
                         <span class="visually-hidden">Видео</span>
                         <svg class="filters__icon" width="24" height="16">
                             <use xlink:href="#icon-filter-video"></use>
@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li class="popular__filters-item filters__item">
-                    <a class="filters__button filters__button--text button" href="#">
+                    <a class="filters__button filters__button--text button <?php if(isset($_GET['id']) && $_GET['id'] == 1) { echo 'filters__button--active'; }?>" href="/?id=1">
                         <span class="visually-hidden">Текст</span>
                         <svg class="filters__icon" width="20" height="21">
                             <use xlink:href="#icon-filter-text"></use>
@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li class="popular__filters-item filters__item">
-                    <a class="filters__button filters__button--quote button" href="#">
+                    <a class="filters__button filters__button--quote button <?php if(isset($_GET['id']) && $_GET['id'] == 2) { echo 'filters__button--active'; }?>" href="/?id=2">
                         <span class="visually-hidden">Цитата</span>
                         <svg class="filters__icon" width="21" height="20">
                             <use xlink:href="#icon-filter-quote"></use>
@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 <li class="popular__filters-item filters__item">
-                    <a class="filters__button filters__button--link button" href="#">
+                    <a class="filters__button filters__button--link button <?php if(isset($_GET['id']) && $_GET['id'] == 5) { echo 'filters__button--active'; }?>" href="/?id=5">
                         <span class="visually-hidden">Ссылка</span>
                         <svg class="filters__icon" width="21" height="18">
                             <use xlink:href="#icon-filter-link"></use>
@@ -87,7 +87,7 @@
         <?php foreach($array as $itm): ?>
             <article class="popular__post post post-<?=out_secur($itm['class'])?>">
                 <header class="post__header">
-                    <h2><?=out_secur($itm['title'])?></h2>
+                    <h2><a href="post.php?id=<?=(int)$itm['id']?>"><?=out_secur($itm['title'])?></a></h2>
                 </header>
                 <div class="post__main">
                     <?php switch('post-'.$itm['class']) {
