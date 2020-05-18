@@ -7,10 +7,19 @@ function open_DB() {
 
 function q($link, $query) {
     if($link !== false) {
+<<<<<<< HEAD
         return mysqli_query($link, $query);
+=======
+        if($ask = mysqli_query($link, $query)) {
+            return $ask;
+        } else {
+            printf("Сообщение ошибки: %s\n", mysqli_error($link));
+        }
+>>>>>>> aec6f343301cdef726fd19b26a1b0245e4051fdf
     } else {
         return 'err';
     }
+    exit;
 }
 
 function crop($text, $count=300) {
