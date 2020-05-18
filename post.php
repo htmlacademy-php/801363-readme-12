@@ -3,7 +3,6 @@ include_once ('./functions.php');
 include_once ('./helpers.php');
 
 
-<<<<<<< HEAD
 if(isset($_GET['id']) )
 $link = open_DB();
 $ask = q($link, "
@@ -27,7 +26,6 @@ LIMIT 1
     echo 'not writers';
 }
 
-=======
 if(isset($_GET['id']) ) {
     $link = open_DB();
     $ask = q($link, "
@@ -69,4 +67,3 @@ SELECT COUNT(*) FROM `subscriptions` WHERE `id_author` = " . (int)$row['USER_ID'
 } else {
     echo 'Не верно заданы параметры $GET["id"]';
 }
->>>>>>> aec6f343301cdef726fd19b26a1b0245e4051fdf
