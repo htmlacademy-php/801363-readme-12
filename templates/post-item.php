@@ -111,11 +111,7 @@
             <h2 class="visually-hidden">Публикация</h2>
             <div class="post-details__wrapper post-photo">
                 <div class="post-details__main-block post post--details">
-<<<<<<< HEAD
                     <?=$post?>
-=======
-                    <?php print $post; ?>
->>>>>>> aec6f343301cdef726fd19b26a1b0245e4051fdf
                     <div class="post__indicators">
                         <div class="post__buttons">
                             <a class="post__indicator post__indicator--likes button" href="#" title="Лайк">
@@ -211,41 +207,23 @@
                     <div class="post-details__user-info user__info">
                         <div class="post-details__avatar user__avatar">
                             <a class="post-details__avatar-link user__avatar-link" href="#">
-<<<<<<< HEAD
-                                <img class="post-details__picture user__picture" src="img/userpic-elvira.jpg" alt="Аватар пользователя">
-=======
                                 <img class="post-details__picture user__picture" src="img/<?=$itm['AVATAR']?>" alt="Аватар пользователя">
->>>>>>> aec6f343301cdef726fd19b26a1b0245e4051fdf
                             </a>
                         </div>
                         <div class="post-details__name-wrapper user__name-wrapper">
                             <a class="post-details__name user__name" href="#">
-<<<<<<< HEAD
-                                <span>Эльвира Хайпулинова</span>
-                            </a>
-                            <time class="post-details__time user__time" datetime="2014-03-20">5 лет на сайте</time>
-=======
                                 <span><?=$itm['login']?></span>
                             </a>
                             <time class="post-details__time user__time" datetime="<?=$itm['datetime']?>">5 лет на сайте</time>
->>>>>>> aec6f343301cdef726fd19b26a1b0245e4051fdf
                         </div>
                     </div>
                     <div class="post-details__rating user__rating">
                         <p class="post-details__rating-item user__rating-item user__rating-item--subscribers">
-<<<<<<< HEAD
-                            <span class="post-details__rating-amount user__rating-amount">1856</span>
-                            <span class="post-details__rating-text user__rating-text">подписчиков</span>
-                        </p>
-                        <p class="post-details__rating-item user__rating-item user__rating-item--publications">
-                            <span class="post-details__rating-amount user__rating-amount">556</span>
-=======
                             <span class="post-details__rating-amount user__rating-amount"><?=$itm['count_subs']?></span>
                             <span class="post-details__rating-text user__rating-text">подписчиков</span>
                         </p>
                         <p class="post-details__rating-item user__rating-item user__rating-item--publications">
                             <span class="post-details__rating-amount user__rating-amount"><?=$itm['count_pub']?></span>
->>>>>>> aec6f343301cdef726fd19b26a1b0245e4051fdf
                             <span class="post-details__rating-text user__rating-text">публикаций</span>
                         </p>
                     </div>
